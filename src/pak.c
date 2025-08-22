@@ -388,7 +388,7 @@ int pakrepak(char *path) {
   fwrite(baseOffset, 4, 1, file);
   fwrite(dataOffset, 4, 1, file);
   fwrite("\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 12, 1,
-         file); // 16 byte whitespace before base file info cluster
+         file); // 12 byte whitespace before base file info cluster
   fwrite(fileCount, 4, 1, file);
 
   unsigned int folderNameOffsetLocations[512][512] = {0};
@@ -615,8 +615,8 @@ int pakunpak(char *path) {
     unsigned char *fileBuffer = malloc(pakfile.pakEntries[i].pkSize);
     fseek(file, pakfile.pakEntries[i].offset, SEEK_SET);
 
-    // printf("Reading %d bytes from offset %d in pakfile\n",
-    //       pakfile.pakEntries[i].pkSize, (int)ftell(file));
+    printf("Reading %d bytes from offset %d in pakfile\n",
+           pakfile.pakEntries[i].pkSize, (int)ftell(file));
 
     fread(fileBuffer, 1, pakfile.pakEntries[i].pkSize, file);
 
@@ -667,8 +667,7 @@ int pakunpak(char *path) {
       }
     }
 
-    // printf("Extracted: %s/%s\n", fullDirectory,
-    // pakfile.pakEntries[i].fileName);
+    printf("Extracted: %s/%s\n", fullDirectory, pakfile.pakEntries[i].fileName);
   }
 
   char infoFilePath[256] = {0};
