@@ -17,6 +17,10 @@ REPAK
 The command to repack content to a pak file is `./<pakpak-name> pak <pakfile.pak>-unpak` 
 pakpak will then create a new file in the working directory called 'out.pak', from there you can rename it to the pak you're replacing and chuck it into the game.
 
+COMPATIBILITY
+=============
+pakpak works with all epic mickey games that use PAK files. (EM1/2 on Wii & EM2 on PC)
+
 ATTRIBUTION
 ===========
 pakpak uses zlib to deflate/inflate files when unpacking/repacking: https://github.com/madler/zlib
