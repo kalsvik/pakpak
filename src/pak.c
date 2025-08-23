@@ -35,7 +35,6 @@ pak_file_structure pakpakreadorder(const char *path) {
   }
 
   char *mode = readstr(orderFile, 1);
-  printf("%s", mode);
 
   if (strcmp(mode, "WII") == 0) {
     f.wii = 1;
@@ -425,7 +424,7 @@ int pakrepak(char *path) {
       if (wii == 0) {
         reverse(paddedExtension, correctedExtension);
       } else {
-        memcpy(paddedExtension, correctedExtension, 4);
+        memcpy(correctedExtension, paddedExtension, 4);
       }
 
       fwrite(correctedExtension, 4, 1, file);
