@@ -3,9 +3,11 @@ project(pakpak)
 
 set(CMAKE_C_STANDARD 11)
 set(ZLIB_BUILD_TESTING OFF)
+set(CMAKE_C_FLAGS "-O3")
 
-set(CMAKE_C_FLAGS "-O3 -Wall -Wextra")
-set(CMAKE_C_FLAGS_DEBUG "-g -Wall -Wextra")
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
 
 add_subdirectory(src/zlib)
 

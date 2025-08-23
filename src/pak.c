@@ -351,6 +351,7 @@ pak_file pakread(char *path) {
   pakfile.valid = 1;
   pakfile.pakFolders = pakked_folders;
   pakfile.pakFolderCount = currentFolderCount;
+  pakfile.wii = wii;
 
   return pakfile;
 }
