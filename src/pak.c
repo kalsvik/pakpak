@@ -267,7 +267,7 @@ pak_file pakread(char *path) {
 
     char correctedFileType[4] = {0};
 
-    if (pakfile.wii == 0) {
+    if (wii == 0) {
       reverse(fileType, correctedFileType);
     } else {
       memcpy(correctedFileType, fileType, 4);
